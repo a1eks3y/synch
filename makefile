@@ -1,11 +1,11 @@
 #!/bin/sh
 
-MIN_COV = 100.0
+MIN_COV = 100
 
 bin/: ; mkdir -p $@
 
 bin/golangci-lint: | bin/
-	@GOBIN="$(realpath $(dir $@))" go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.61.0
+	@GOBIN="$(realpath $(dir $@))" go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.64.6
 
 .PHONY: lint
 lint: | bin/golangci-lint ## Run code linters
